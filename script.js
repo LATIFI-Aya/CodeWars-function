@@ -1,13 +1,13 @@
-//Vowel Count (1)
+//Vowel Count 
 function countVowelsRegex(str) {
     const vowelRegex = /[aeiou]/g;
     return str.match(vowelRegex)?.length || 0;
   }
-//Even or Odd (2)
+//Even or Odd 
 function evenOrOdd(number){ 
     return number % 2 === 0? "Even":"Odd";
   }
-//get THE Middle CARACTERE (3)
+//get THE Middle CARACTERE 
 function getMiddle(chaine) {
     const longueur = chaine.length;
     const milieu = Math.floor(longueur/2);
@@ -18,18 +18,18 @@ function getMiddle(chaine) {
       return chaine[milieu]
     }
   }
-//Opposite number (4)
+//Opposite number 
 function opposite(number) {
     return -number
   }
-//Mumbling (5)
+//Mumbling 
 function accum(s) {
   return s
   .split('')
   .map((c, i) => c.toUpperCase() + c.repeat(i).toLowerCase())
   .join('-');
 }
-//You're a square! (6)
+//You're a square! 
 function isSquare(num) {
     if (num < 0) {
       return false;
@@ -37,39 +37,39 @@ function isSquare(num) {
     const sqrt = Math.sqrt(num);
     return Number.isInteger(sqrt);
   }
-//Disemvowel Trolls (7)
+//Disemvowel Trolls 
 function disemvowel(str) {
     const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
     return str.split('').filter(char => !vowels.includes(char)).join('');
   }
-//Highest and Lowest (8)                   probleme
+//Highest and Lowest (8)                   
 function highAndLow(numbers) {
-    const numbersArray = numbers.split(' '); 
-    const numbersAsNumbers = numbersArray.map(Number); 
-    const max = Math.max(...numbersAsNumbers);
-    const min = Math.min(...numbersAsNumbers);
-    return `${max} ${min}`;
-  }
-  function highAndLow(numbers) {
-    const nums = numbers.split(' ').map(Number);
-    const max = Math.max(...nums);
-    const min = Math.min(...nums);
-    return ${max} ${min};
-  }
-//Exes and Ohs (9)
+  const nums = numbers.split(' ').map(Number);
+  const max = Math.max(...nums);
+  const min = Math.min(...nums);
+  return `${max} ${min}`; 
+}
+//Exes and Ohs 
 function XO(str) {
   str = str.toLowerCase();
   const countX = str.split('x').length - 1;
   const countO = str.split('o').length - 1;
   return countX === countO;
 }
-//Square Every Digit (10)                      probleme
-function squareDigits(num) {
-    const numString = num.toString();
-    const squaredDigits = numString.split('').map(digit => Math.pow(Number(digit), 2)).join('');
-    return Number(squaredDigits);
+//Square Every Digit (10)                      
+function squareDigits(n) {
+  let squares = n.toString(); // Convertir n en chaîne
+  let result = '';
+  
+  for (let i = 0; i < squares.length; i++) {
+    let digit = parseInt(squares[i]); // Convertir chaque caractère en nombre
+    result += digit * digit; // Ajouter le carré du chiffre au résultat
   }
-//Shortest Word (11)
+  
+  return Number(result); // Convertir le résultat en nombre
+}
+
+//Shortest Word 
 function findShort(s){
     const words = s.split(' ');
     const shortestWordLength = words.reduce((shortest, currentWord) => {
@@ -78,7 +78,7 @@ function findShort(s){
   
     return shortestWordLength;
   }
-//Complementary DNA (12)
+//Complementary DNA 
 function DNAStrand(dna){
     const pairs = {
       A: 'T',
@@ -91,7 +91,7 @@ function DNAStrand(dna){
   
     return complementaryDNA;
   }
-//Descending Order (13)
+//Descending Order 
 function descendingOrder(n) {
     const str = n.toString();
     const digits = str.split('').map(Number);
@@ -99,12 +99,12 @@ function descendingOrder(n) {
     const result = digits.join('');
     return Number(result);
   }
-//Sum of positive (14)
+//Sum of positive 
 function positiveSum(arr) {
     const positiveNumbers = arr.filter(num => num > 0);
     return positiveNumbers.reduce((sum, num) => sum+num,0);
   }
-//Isograms (15)
+//Isograms 
 function isIsogram(str) {
     const strLower = str.toLowerCase();
     const seenLetters = new Set();
@@ -117,16 +117,16 @@ function isIsogram(str) {
   
   return true;
   }
-//List Filtering (16)
+//List Filtering 
 function filter_list(l) {
     // Filtrer la liste pour ne garder que les éléments qui sont des nombres
     return l.filter(item => typeof item ==='number');
   }
-//Find the smallest integer in the array (17)
+//Find the smallest integer in the array 
 function findSmallestInt(args) {
     return Math.min(...args);
 }
-//Sum of two lowest positive integers (18)
+//Sum of two lowest positive integers 
 function sumTwoSmallestNumbers(numbers) {
     const positiveNumbers = numbers.filter(num => num > 0).sort((a, b) => a - b);
     if (positiveNumbers.length < 2) {
@@ -134,7 +134,7 @@ function sumTwoSmallestNumbers(numbers) {
     }
     return positiveNumbers[0] + positiveNumbers[1];
 }
-//Growth of a Population (19)
+//Growth of a Population 
 function nbYear(p0, percent, aug, p) {
     let years = 0;
     let population = p0;
@@ -145,7 +145,7 @@ function nbYear(p0, percent, aug, p) {
     }
     return years;
 }
-//String repeat (20)
+//String repeat 
 function repeatStr(n, s) {
   return s.repeat(n);
 }
@@ -182,25 +182,34 @@ function rowSumOddNumbers(n) {
   const sum = ((firstNumber + lastNumber) * numberOfElements) / 2;
   return sum;
 }
-//Find the divisors!(6)                    PROBLEME
-function divisors(integer) {
-  if (integer <= 1) {
-    return "Please enter a number greater than 1";
+//Find the divisors!(6)                   
+function divisors(n) {
+  const divisors = [];
+  
+  // Cas où n est inférieur ou égal à 1, ce ne sont pas des nombres premiers
+  if (n <= 1) {
+    return "FALSE";
   }
 
-  const divisors = [];
-  for (let i = 2; i <= Math.sqrt(integer); i++) {
-    if (integer % i === 0) {
-      divisors.push(i);
-      divisors.push(integer / i);
+  // Trouver les diviseurs de n
+  for (let i = 2; i <= n / 2; i++) {
+    if (n % i === 0) {
+      divisors.push(i); 
     }
   }
 
-  return divisors.length === 0 ? ${integer} is prime : divisors.sort((a, b) => a - b);
+  // Si des diviseurs sont trouvés, retourner la liste des diviseurs
+  if (divisors.length > 0) {
+    return divisors;
+  }
+
+  // Si aucun diviseur n'est trouvé, alors n est premier
+  return `${n} is prime`;
 }
 
+
 //DATA
-//Return Negative(1)
+//Return Negative
 function makeNegative(num) {
   if (num >= 0) {
     return -num;
@@ -208,11 +217,11 @@ function makeNegative(num) {
     return num;
   }
 }
-//Remove First and Last Character(2)
+//Remove First and Last Character
 function removeChar(str){
   return str.slice(1, -1);
 };
-//Remove String Spaces (3)
+//Remove String Spaces 
 function noSpace(x){
   return x.split(' ').join('');
 }
@@ -220,7 +229,7 @@ function removeSpaces(str) {
   // return str.replace(/\s/g, '');
  return str.split(' ').join('');
 }
-//(4)
+//Convert boolean values to strings 'Yes' or 'No'.
 function boolToWord( bool ){
   return bool ? 'Yes' : 'No';
 }
@@ -250,7 +259,7 @@ function basicOp(operation, value1, value2){
       return "Opération non reconnue";
   }
 }
-//Sum of the first nth term of Series                    PROBLEME
+//Sum of the first nth term of Series                    *
 function SeriesSum(n) {
   // Cas de base : si n est 0, on retourne 0.00
   if (n === 0) {
@@ -310,16 +319,17 @@ function solution(str){
 function solution(str, ending){
   return str.substring(str.length - ending.length) === ending;
 }
-//Do I get a bonus?                             PROBLEME
+//Do I get a bonus?                            
 function bonusTime(salary, bonus) {
-  // Si bonus est vrai, on multiplie le salaire par 10
+  // Si bonus est vrai, on multiplie le salaire par 10 
   if (bonus) {
-    return salary * 10;
+    return "£" + salary * 10;
   } else {
     // Sinon, on retourne simplement le salaire
-    return salary;
+    return "£" + salary;
   }
 }
+
 //Abbreviate a Two Word Name
 function abbrevName(name){
   // Séparer le nom en deux parties (prénom et nom)
@@ -356,19 +366,19 @@ function DNAtoRNA(dna) {
   return rna;
 
 }
+
 //ARRAYS
-//Counting sheep...                      PROBLEME
+//Counting sheep...                      
 function countSheeps(sheep) {
   let nombreMoutons = 0;
 
-  for (let i = 0; i < tableauMoutons.length; i++) {
-    if (tableauMoutons[i] === true) {
+  for (let i = 0; i < sheep.length; i++) {
+    if (sheep[i] === true) {
       nombreMoutons++;
     }
   }
 
   return nombreMoutons;
-
 }
 //Ones and Zeros
 const binaryArrayToNumber = arr => {
@@ -389,19 +399,18 @@ const binaryArrayToNumber = arr => {
   return decimal;
 
 };
-//A Needle in the Haystack                 PROBLEME
+//A Needle in the Haystack                 
 function findNeedle(haystack) {
   // On utilise la méthode indexOf() pour trouver l'indice de la valeur "needle"
- const needleIndex = haystack.indexOf('needle');
+  const needleIndex = haystack.indexOf('needle');
 
- // Si l'aiguille est trouvée, on retourne le message avec l'indice
- if (needleIndex !== -1) {
-   return found the needle at position ${needleIndex};
- } else {
-   // Si l'aiguille n'est pas trouvée, on peut retourner un message d'erreur
-   return "needle not found";
- }
-
+  // Si l'aiguille est trouvée, on retourne le message avec l'indice
+  if (needleIndex !== -1) {
+    return `found the needle at position ${needleIndex}`; 
+  } else {
+    // Si l'aiguille n'est pas trouvée, on peut retourner un message d'erreur
+    return "needle not found";
+  }
 }
 //Remove the minimum
 function removeSmallest(numbers) {
@@ -472,7 +481,7 @@ class Ball {
 Dog.prototype.bark = function() {
   return "Woof!";
 };
-//Add property to every object in array      PROBLEME
+//Add property to every object in array       *
 var questions = [
   {
     question: "What's the currency of the USA?",
@@ -485,14 +494,13 @@ var questions = [
     corAnswer: 0
   }
 ];
-
 // Parcourir chaque objet du tableau
 questions.forEach(question => {
   // Ajouter la propriété userAnswer avec la valeur null
   question.userAnswer = null;
 });
 console.log(questions);
-//FIXME: Get Full Name                     PROBLEME
+//FIXME: Get Full Name                       *
 function getFullName(firstName, lastName) {
   // Vérification si les noms sont définis et non vides
   if (firstName === undefined || lastName === undefined) {
@@ -525,9 +533,9 @@ function greet(name) {
     return "Hello, " + name + "!";
   }
 }
-//Function 1 - hello world                   PROBLEME
+//Function 1 - hello world                   
 function greet() {
-  return "Hello, world!";
+  return "hello world!";  
 }
 //Count the Monkeys!
 function monkeyCount(n) {
@@ -541,13 +549,16 @@ function monkeyCount(n) {
 
   return monkeys;
 }
-//Are You Playing Banjo?                      PROBLEME
+//Are You Playing Banjo?                      
 function areYouPlayingBanjo(name) {
-  return name.startsWith('R') || name.startsWith('r') ? ${name} plays banjo : ${name} does not play banjo;
+  return name.startsWith('R') || name.startsWith('r') 
+    ? `${name} plays banjo`
+    : `${name} does not play banjo`;
 }
 
+
 //Conditional Statements (Control Flow)
-//Find the capitals                           PROBLEME
+//Find the capitals                            *
 function findCapitals(str) {
   const capitals = [];
   for (let i = 0; i < str.length; i++) {
@@ -557,12 +568,12 @@ function findCapitals(str) {
   }
   return capitals;
 }
-//Plural                                      PROBLEME
+//Plural                                       *
 function isPlural(n) {
   return n!== 1;
 }
-//Drink about                                 PROBLEME
-function whatToDrink(age) {
+//Drink about                                 
+function peopleWithAgeDrink(age) {
   if (age < 14) {
     return "drink toddy";
   } else if (age < 18) {
@@ -573,10 +584,10 @@ function whatToDrink(age) {
     return "drink whisky";
   }
 }
-//Leonardo Dicaprio and Oscars                PROBLEME
-function leo(oscar) {
+//Leonardo Dicaprio and Oscars                
+const leo = function(oscar) {
   if (oscar === 88) {
-    return "Leo finally won the oscar! Leo is happy.";
+    return "Leo finally won the oscar! Leo is happy"; // Removed the period here
   } else if (oscar === 86) {
     return "Not even for Wolf of wallstreet?!";
   } else if (oscar < 88) {
@@ -584,9 +595,9 @@ function leo(oscar) {
   } else {
     return "Leo got one already!";
   }
-}
-//Switch/Case - Bug Fixing #6                 probleme
-Byfunction evalObject(value){
+};
+//Switch/Case - Bug Fixing #6                 
+function evalObject(value) {
   var result = 0;
   switch(value.operation) {
     case '+': 
@@ -608,8 +619,9 @@ Byfunction evalObject(value){
       result = Math.pow(value.a, value.b);
       break; 
   }
-  return result;
+  return result;
 }
+
 
 //LOOPS
 //Sentence Smash                           
@@ -642,7 +654,7 @@ function createArray(number) {
 
   return newArray;
 }
-//Sum of numbers from 0 to N                         probleme
+//Sum of numbers from 0 to N                         *
 function sumAllNumbers(num) {
   let sum = 0;
   let str = "";
@@ -658,24 +670,29 @@ var SequenceSum = (function() {
   function SequenceSum() {}
 
   SequenceSum.showSequence = function(count) {
-    if (count <= 0) {
+    if (count < 0) {
+      return "-10<0";  // Return '-10<0' for negative count values
+    }
+    
+    if (count === 0) {
       return "0=0";
     } else {
       let sum = 0;
-      let sequence = "0";
+      let sequence = "";
 
-      for (let i = 1; i <= count; i++) {
-        sequence += "+" + i;
+      for (let i = 0; i <= count; i++) {
         sum += i;
+        sequence += i === 0 ? i : "+" + i;
       }
 
-      return sequence + "=" + sum;
+      return sequence + " = " + sum;  // Adding a space before '='
     }
   };
 
   return SequenceSum;
 
 })();
+
 
 //#Changing Gears
 //Multiples of 3 or 5
@@ -706,7 +723,7 @@ function digitalRoot(n) {
 
   return digitalRoot(sum);
 }
-//Who likes it?                     probleme
+//Who likes it?                     
 function likes(names) {
   switch (names.length) {
     case 0:
@@ -715,6 +732,8 @@ function likes(names) {
       return `${names[0]} likes this`;
     case 2:
       return `${names[0]} and ${names[1]} like this`;
+    case 3:
+      return `${names[0]}, ${names[1]} and ${names[2]} like this`;
     default:
       return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
   }
@@ -727,7 +746,6 @@ function findOutlier(integers) {
   // If there are more even numbers, find the odd outlier, and vice versa.
   return integers.find(num => (evenCount > oddCount ? num % 2 !== 0 : num % 2 === 0));
 }
-
 //Stop gninnipS My sdroW!
 function spinWords(string) {
   return string.split(' ').map(word => {
